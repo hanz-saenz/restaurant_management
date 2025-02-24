@@ -16,7 +16,7 @@ Este proyecto es una aplicación web creada con Django que incluye manejo de tar
 Primero, clona el repositorio desde GitHub:
 
 ```bash
-git clone https://github.com/tu_usuario/tu_proyecto.git
+[git clone https://github.com/tu_usuario/tu_proyecto.git](https://github.com/hanz-saenz/restaurant_management.git)
 cd tu_proyecto
 ```
 
@@ -65,10 +65,10 @@ Para conectarte a una base de datos PostgreSQL local, asegúrate de tener Postgr
 
 ```bash
 # Conectar a PostgreSQL
-psql -U tu_usuario -d nombre_base_de_datos
+psql -U tu_usuario -d restaurant_management
 ```
 
-Reemplaza `tu_usuario` con el nombre de tu usuario de PostgreSQL y `nombre_base_de_datos` con el nombre de la base de datos que estás utilizando.
+Reemplaza `tu_usuario` con el nombre de tu usuario de PostgreSQL y `restaurant_management` con el nombre de la base de datos que estás utilizando.
 
 ### Restaurar una Copia de Seguridad (.backup)
 
@@ -76,7 +76,7 @@ Si tienes una copia de seguridad en formato `.backup`, puedes restaurarla con el
 
 ```bash
 # Restaurar una copia de seguridad .backup
-pg_restore -U tu_usuario -d nombre_base_de_datos -1 ruta/a/tu_archivo.backup
+pg_restore -U tu_usuario -d restaurant_management -1 restaurant_management.backup
 ```
 
 Este comando restaurará el archivo `.backup` a la base de datos especificada.
