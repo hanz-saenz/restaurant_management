@@ -29,7 +29,7 @@ Crea y activa un entorno virtual para aislar las dependencias del proyecto:
 python -m venv env
 
 # Activar el entorno en Windows
-.\env\Scriptsctivate
+.\env\Scripts\activate
 
 # Activar el entorno en macOS/Linux
 source env/bin/activate
