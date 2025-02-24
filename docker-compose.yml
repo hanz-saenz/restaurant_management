@@ -1,0 +1,47 @@
+services:
+  # Contenedor de Redis
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # Contenedor de Celery
+  celery:
+    image: hanzsaenz/restaurant_management
+    command: 'celery -A restaurant_management worker --pool=threads --loglevel=INFO'
+    volumes:
+      - .:/restaurant_management
+    environment:
+      LC_ALL: 'C.UTF-8'
+      LANG: 'C.UTF-8'
+      C_FORCE_ROOT: 1
+      DOCKER: 1
+      TZ: 'America/Bogota'
+    depends_on:
+      - redis
+    links:
+      - redis
+
+  # Contenedor de Django (restaurant_management)
+  restaurant_management:
+    image: hanzsaenz/restaurant_management
+    command: 'python manage.py runserver 0.0.0.0:8000'
+    volumes:
+      - .:/restaurant_management
+    ports:
+      - "8000:8000"
+    environment:
+      C_FORCE_ROOT: 1
+      LC_ALL: 'C.UTF-8'
+      LANG: 'C.UTF-8'
+      TZ: 'America/Bogota'
+    links:
+      - redis
+    depends_on:
+      - redis
+
+# Definición de volúmenes
+volumes:
+  redis_data:
