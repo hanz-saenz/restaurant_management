@@ -88,6 +88,13 @@ Realiza las migraciones necesarias para la base de datos:
 ```bash
 python manage.py migrate
 ```
+## Cargar datos de inicio
+
+Carga datos de inicio para la aplicación
+
+```bash
+python manage.py loaddata data.json
+```
 
 ## Iniciar el Proyecto de Django
 
